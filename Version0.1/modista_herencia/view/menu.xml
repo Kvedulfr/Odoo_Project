@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	
+		
+		
+
+
+  	<!-- Aqui creamos en el menu principal nuestro enlace al modulo  -->
+		<menuitem id="menu_pedido" name="Modista" sequence="30"/>
+        <!-- Menu secundario que se va a ver a la izquierda(No es clickeable solo a modo de titulo) -->
+		<menuitem id="menu_pedido_view" name="Pedidos/Cientes" parent="menu_pedido"/>      
+        <!-- Submenu de Clientes TEST -->
+		<menuitem id="menu_listar_cliente" name="Registrar Clientes" parent="menu_pedido_view" action="listar_clientes"/> 	 		
+            <!-- Submenu de Pedidos/Clientes -->            
+		<menuitem id="menu_listar_pedido" name="Listar Pedidos" parent="menu_pedido_view" action="listar_pedido"/> 
+
+
+
+        
+ 		
+
+</data>
+  </odoo>

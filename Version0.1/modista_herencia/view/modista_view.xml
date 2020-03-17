@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+    
+            <!-- Vista de arbol en la que vamos a ver los registros guardados -->
+		<record model="ir.ui.view" id="view_modista_tienda_tree">
+			<field name="name">view.modista.tienda.tree</field>
+			<field name="model">herencia.model</field>
+			<field name="arch" type="xml">
+            <!--Nombre de los campos y orden en los que va aparecer-->
+				<tree string="Lista Clientes">
+					<field name="nombre"/>                    
+					<field name="t_pedido"/>
+					<field name="precio"/>                    
+					<field name="fecha"/>
+                    <field name="telefono"/>
+                    <field name="pagado"/>                    
+				</tree>
+			</field>
+		</record>
+            <!-- Vista del del filtro -->
+		<record id="view_modista_tienda_filter" model="ir.ui.view">
+    			<field name="name">view.modista.tienda.filter</field>
+    			<field name="model">herencia.model</field>
+    			<field name="arch" type="xml">
+				
+        		<search>
+                    <!--Para indicar porque campos podemos filtrar  Pagado o no pagado modificar-->
+            		<field name="t_pedido"/>
+					<field name="pagado"/>
+            		<filter string="Arreglo" domain="[('t_pedido','=','1')]"/>
+					<filter string="Confeccion a Medida" domain="[('t_pedido','=','2')]"/>
+					<filter string="Traje Sevillana" domain="[('t_pedido','=','3')]"/>
+					<filter string="No Pagado" domain="[('pagado','=','True')]"/>
+
+        		</search>
+
+    			</field>
+		</record>
+            <!-- Vista para el formulario -->
+		<record model="ir.ui.view" id="view_modista_tienda_form">
+			<field name="name">view.modista.tienda.form</field>
+			<field name="model">herencia.model</field>
+			<field name="arch" type="xml"> <!--Importantisimo ponerlo-->
+				<form string="videojuego form">
+					<header>
+                    <!--oe_highlight para darle color al fondo del boton -->
+                		<button name="limpiar_registros" type="object" string="Limpiar" class="oe_highlight"/>
+						<button name="fecha_actual" type="object" string="Fecha Actual" class="oe_highlight"/>
+            		</header>
+					
+					<sheet>
+                    <!-- Agrupamos en el formulario en mi caso de 2 en 2 -->
+						<group>
+							  <field name="nombre"/>
+                              <field name="telefono"/>
+						</group>
+
+						<group>
+							<field name="fecha"/>
+                            <field name="t_pedido"/>
+						</group>		
+
+						<group>
+							<field name="precio"/>
+                            <field name="pagado"/>
+						</group>                       
+                        <!--Secciones columnas en la que se va a dividir -->
+						<notebook colspan="2">
+							<page string="Descripcion">
+								<field name="descripcion"/>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+   
+ <!-- Encabezado de la ventana principal en la que tenemos el titulo de Control de pedidos -->
+       <record model="ir.actions.act_window" id="listar_pedido">
+			<field name="name">Control de Pedidos</field>
+			<field name="res_model">herencia.model</field>
+			<field name="view_mode">tree,form,kanban</field>
+		</record>
+
+
+
+		<!-- AMPLIACIÓN TEST SOLUCION: CREAR UN MENU XML PARA  LOS MENUS Y OTRO XML PARA LA VISTA CLIENTE-->
+
+<!--
+   <!- Vista de arbol en la que vamos a ver los registros guardados ->
+		<record model="ir.ui.view" id="view_modista_cliente_tree">
+			<field name="name">view.modista.cliente.tree</field>
+			<field name="model">herencia.model</field>
+			<field name="arch" type="xml">
+            <!-Nombre de los campos y orden en los que va aparecer->
+				<tree string="Lista Clientes">
+					<field name="nombre"/>              
+					
+                    <field name="telefono"/>
+                                       
+				</tree>
+			</field>
+		</record>
+
+
+
+         
+
+
+		<!- Encabezado de la ventana principal en la que tenemos el titulo de Control de clientes  TEST->
+		<record model="ir.actions.act_window" id="listar_clientes">
+			<field name="name">Control de Clientes</field>
+			<field name="res_model">herencia.model</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+-->
+
+
+
+	</data>
+</odoo>

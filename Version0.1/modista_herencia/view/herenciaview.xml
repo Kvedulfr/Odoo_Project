@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <odoo>
+        <data>
+        <!--Vista kanban -->
+     <record id="kanban_vista_pelis_inherited" model="ir.ui.view">
+        <field name="model">herencia.model</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey">
+                <field name="nombre"/>                    
+					<field name="t_pedido"/>
+					<field name="precio"/>                    
+					<field name="fecha"/>
+               <field name="telefono"/>
+               <field name="pagado"/>        
+
+
+                <templates>
+                    <t t-name="kanban-tooltip">
+                        <field name="nombre" />
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card" class="text-center">
+                            <div class="text-uppercase">
+                                <strong>
+                                   Nombre: <field name="nombre" />                                    
+                                </strong>                              
+                            </div>
+
+                             <div class="text-uppercase">
+                                <em>
+                                   Telefono: <field name="telefono" />                                    
+                                </em>                              
+                            </div>
+                        <!--
+                            <div class="oe_kanban_image">
+                                <img t-att-src="kanban_image('multi.cartelera', 'portada', record.id.raw_value)" class="oe_kanban_image"/>
+                            </div>
+                            <em>
+                                <field name="Precio"/>
+ €
+                            </em>
+                             -->
+                        </div>
+                       
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+   
+  
+             <!-- Herencia de vista-->
+          <record id="view_tree_todo_task_inherited" model="ir.ui.view">
+            <field name="name">view_tree_modista_herencia_inherited</field>
+            <field name="model">herencia.model</field>
+            <field name="inherit_id" ref="modista_herencia.view_modista_tienda_tree"/>
+            <field name="arch" type="xml">
+                <field name="fecha" position="after">                  
+                    <field name="fecha2"/>
+
+                </field>
+
+             </field>
+           </record>
+    <!-- Herencia de formulario-->
+       <record id="view_form_todo_task_inherited" model="ir.ui.view">
+      <field name="name">view_form_todo_task_inherited</field>
+      <field name="model">herencia.model</field>
+      <field name="inherit_id" ref="modista_herencia.view_modista_tienda_form"/>
+      <field name="arch" type="xml">
+
+        <field name="fecha" position="after">
+           <field name="fecha2"/>
+        </field>
+       
+       </field>
+      </record>
+
+       </data>
+    </odoo>

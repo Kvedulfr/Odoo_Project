@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+     <record model="ir.ui.view" id="view_modista_cliente_tree">
+			<field name="name">view.modista.cliente.tree</field>
+			<field name="model">modista.tienda</field>
+			<field name="arch" type="xml">
+            <!--Nombre de los campos y orden en los que va aparecer-->
+				<tree string="Lista Clientes">
+					<field name="nombre"/> 
+                    <field name="telefono"/>                                       
+				</tree>
+			</field>
+   </record>
+
+    	
+
+        <record model="ir.ui.view" id="view_modista_cliente_form">
+			<field name="name">view.modista.cliente.form</field>
+			<field name="model">modista.tienda</field>
+			<field name="arch" type="xml"> <!--Importantisimo ponerlo-->
+				<form string="cliente form">
+					<header>
+                    <!--oe_highlight para darle color al fondo del boton -->
+                		<button name="limpiar_registros" type="object" string="Limpiar" class="oe_highlight"/>						
+            		</header>
+					
+					<sheet>                   
+						<group>
+							  <field name="nombre"/>
+                              <field name="telefono"/>
+						</group>
+                        
+						</sheet>
+				</form>
+			</field>
+		</record>
+
+        <!-- Encabezado de la ventana principal en la que tenemos el titulo de Control de clientes  TEST-->
+		<record model="ir.actions.act_window" id="listar_clientes">
+			<field name="name">Control de Clientes</field>
+			<field name="res_model">modista.tienda</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+  </data>
+ </odoo>

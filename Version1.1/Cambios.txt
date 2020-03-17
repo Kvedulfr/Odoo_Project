@@ -1,0 +1,22 @@
+--Mejoras--
+-Rectructuración del modulo
+-Clases hechas de nuevo para evitar problemas
+-Campon Many2one insertado
+
+--Conocimientos--
+
+-Entendimiento de Many2one
+
+--Eliminado--
+-Clases anteriores
+-Kaban
+
+--Mejoras---
+
+-Añadir filtro de busqueda
+-Añadir kanban para clientes y pedidos (con fotos en los pedidos)
+-Añadir un boton para exportar la base de datos (para evitar el borrado de la base de datos)
+-Modulo de gastos
+-Informes para obtener ganancias
+-Reestructurar el modulo para que este todo una carpeta (un archivo donde contenga todo el modulo de golpe)
+-Añadir restriciones (mirar el modulo de pedro y esta pagina https://www.odoo.com/es_ES/forum/ayuda-1/question/unique-sql-constraint-for-a-field-on-a-exisitng-database-odoo-10-124445 )
