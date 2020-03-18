@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
  <odoo>
   <data>
+	
+    <record id="kanban_vista_clientes" model="ir.ui.view">
+        <field name="model">modista.cliente</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey">
+                <field name="nombre" />
+                <field name="telefono" />              
+              
+                
+                <templates>
+                    <t t-name="kanban-tooltip">
+                        <field name="nombre" />
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card" class="text-center" >
+                            <div class="text-lowercase">
+                                <strong>
+									<a type="open">	
+                                    <field name="nombre" />
+									 </a>
+                                </strong>
+                            </div>
+                           
+                            <em>
+                                <field name="telefono"/> €
+                            </em>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
 
      <record model="ir.ui.view" id="view_modista_cliente_tree">
 			<field name="name">view.modista.cliente.tree</field>
@@ -42,7 +74,7 @@
 		<record model="ir.actions.act_window" id="listar_clientes">
 			<field name="name">Control de Clientes</field>
 			<field name="res_model">modista.cliente</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,kanban</field>
 		</record>
   </data>
  </odoo>

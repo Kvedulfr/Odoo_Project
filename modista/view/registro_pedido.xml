@@ -8,6 +8,7 @@
 			<field name="arch" type="xml">
             <!--Nombre de los campos y orden en los que va aparecer-->
 				<tree string="Lista Pedidos">
+					<field name="cliente"/>
                     <field name="t_pedido"/>
 					<field name="fecha_p"/> 
                     <field name="fecha_pago"/>
