@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+     <record model="ir.ui.view" id="view_modista_pedidos_tree">
+			<field name="name">view.modista.cliente.tree</field>
+			<field name="model">modista.pedido</field>
+			<field name="arch" type="xml">
+            <!--Nombre de los campos y orden en los que va aparecer-->
+				<tree string="Lista Pedidos">
+                    <field name="t_pedido"/>
+					<field name="fecha_p"/> 
+                    <field name="fecha_pago"/>
+                    <field name="fecha_r"/>                    
+                    <field name="pagado"/>
+                    <field name="precio"/>
+				</tree>
+			</field>
+   </record>
+
+    	
+
+        <record model="ir.ui.view" id="view_modista_pedidos_form">
+			<field name="name">view.modista.cliente.form</field>
+			<field name="model">modista.pedido</field>
+			<field name="arch" type="xml"> <!--Importantisimo ponerlo-->
+				<form string="cliente form">
+					<header>
+                    <!--oe_highlight para darle color al fondo del boton -->
+                		<button name="limpiar_registros" type="object" string="Limpiar" class="oe_highlight"/>
+										
+            		</header>
+					
+					<sheet>                   
+						<group>
+							<field name="t_pedido"/>
+					        <field name="fecha_p"/> 
+                            <field name="fecha_pago"/>
+                            <field name="fecha_r"/>                    
+                            <field name="pagado"/>
+                            <field name="precio"/>
+                            <field name="descripcion"/>
+                            <field name="cliente"/>
+                           
+						</group>
+                        
+						</sheet>
+				</form>
+			</field>
+		</record>
+
+        <!-- Encabezado de la ventana principal en la que tenemos el titulo de Control de clientes  TEST-->
+		<record model="ir.actions.act_window" id="listar_pedidos">
+			<field name="name">Control de Pedidos</field>
+			<field name="res_model">modista.pedido</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+  </data>
+ </odoo>
