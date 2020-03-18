@@ -1,0 +1,12 @@
+Mejoras
+-Estructura de carpetas y archivos del modulo
+-He añadido kanban en clientes con funcionalidad de editar
+
+
+Objetivos futuros
+
+-Añadir restriciones en fechas.
+-Añadir kanban en pedidos. <--- Comprobar si puedo dividir en dos columnas de pedidos pagado o no pagado.
+-Insertar campo binario en pedidos para insertar fotografias en pedidos.
+-Añadir funcionalidad de informes.
+-Añadir nueva clase de gastos.
