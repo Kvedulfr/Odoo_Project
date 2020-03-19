@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+     <record model="ir.ui.view" id="view_modista_pedidos_tree">
+			<field name="name">view.modista.cliente.tree</field>
+			<field name="model">modista.pedido</field>
+			<field name="arch" type="xml">
+            <!--Nombre de los campos y orden en los que va aparecer-->
+				<tree string="Lista Pedidos">
+					<field name="cliente"/>
+                    <field name="t_pedido"/>
+					<field name="fecha_p"/> 
+                    <field name="fecha_pago"/>
+                    <field name="fecha_r"/>                    
+                    <field name="pagado"/>
+                    <field name="precio"/>
+				</tree>
+			</field>
+   </record>
+	<!-- Vista del del filtro -->
+		<record id="view_modista_cliente_filter" model="ir.ui.view">
+    			<field name="name">view.modista.cliente.filter</field>
+    			<field name="model">modista.pedido</field>
+    			<field name="arch" type="xml">
+				
+        		<search>
+                    <!--Para indicar porque campos podemos filtrar  Pagado o no pagado modificar-->
+            		<field name="t_pedido"/>					
+					<field name="pagado"/>
+
+            		<filter string="Arreglos" domain="[('t_pedido','=','1')]"/>
+					<filter string="Confecciones a Medida" domain="[('t_pedido','=','2')]"/>
+					<filter string="Trajes de Sevillana" domain="[('t_pedido','=','3')]"/>
+					<!-- El valor no puede ir entre comilla MAL=> "False" BIEN=> False-->
+					<filter string="Falta por Pagar" domain="[('pagado','=', '2' )]"/>
+					<!-- Para modificar el agrupar importante poner el atributo context-->
+					<group expand="0" String="Agrupar por">
+					  <filter String="Clientes" name="Clientes" context="{'group_by': 'cliente'}"></filter>
+					  <filter String="Pagado" name="Pagado" context="{'group_by': 'pagado'}"></filter>
+					  <filter name="Tipo de cofección"  context="{'group_by': 't_pedido'}"></filter>
+					</group>
+
+
+        		</search>
+
+				
+				
+
+    			</field>
+		</record>
+    	<!--Vista formulario para los pedidos-->
+
+        <record model="ir.ui.view" id="view_modista_pedidos_form">
+			<field name="name">view.modista.cliente.form</field>
+			<field name="model">modista.pedido</field>
+			<field name="arch" type="xml"> <!--Importantisimo ponerlo-->
+				<form string="cliente form">
+					<header>
+                    <!--oe_highlight para darle color al fondo del boton -->
+                		<button name="limpiar_registros" type="object" string="Limpiar" class="oe_highlight"/>
+										
+            		</header>
+					
+					<sheet>                   
+						<group>
+							<field name="t_pedido"/>
+					        <field name="fecha_p"/> 
+                            <field name="fecha_pago"/>
+                            <field name="fecha_r"/>                    
+                            <field name="pagado"/>
+                            <field name="precio"/>
+                            <field name="descripcion"/>
+                            <field name="cliente"/>
+                           
+						</group>
+                        
+						</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Vista kanban pedidos-->
+		    <record id="kanban_vista_pedido" model="ir.ui.view">
+        <field name="model">modista.pedido</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey">
+                <field name="cliente" />
+                <field name="descripcion" />              
+              
+                
+                <templates>
+                    <t t-name="kanban-tooltip">
+                        <field name="cliente" />
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card" class="text-center" >
+                            <div class="text-uppercase">
+                                <strong>
+									<a type="open">	
+                                     <field name="cliente" />
+									</a>
+                                </strong>
+                            </div>
+                           
+                            <em>
+							<strong>Descripcion: </strong><field name="descripcion"/> 
+														
+                            </em>
+
+							<div>
+							<strong>
+						 	 Precio: <field name="precio"/> €
+							</strong>
+							</div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+        <!-- Encabezado de la ventana principal en la que tenemos el titulo de Control de clientes  TEST-->
+		<record model="ir.actions.act_window" id="listar_pedidos">
+			<field name="name">Control de Pedidos</field>
+			<field name="res_model">modista.pedido</field>
+			<field name="view_mode">kanban,tree,form</field>
+		</record>
+  </data>
+ </odoo>
