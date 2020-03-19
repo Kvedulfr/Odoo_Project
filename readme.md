@@ -71,3 +71,31 @@
 -Añadir funcionalidad de informes.
 
 -Añadir nueva clase de gastos.
+
+# Version 2.2
+
+## Mejoras
+-Agregado restricciones en fechas.
+
+-Agregado restriciones en precio.
+
+-Agregado restriciones en telefono.
+
+-Agregado funciones para hacer dichas restricciones.
+
+-Modificado la clase.
+
+## Borrado
+
+-Se ha cambiado el tipo de dato del telefono.
+
+
+
+## Objetivos futuros
+-Agrupacion mensual -->Mirar: https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-group-by-day-25139
+
+-Insertar campo binario en pedidos para insertar fotografias en pedidos para la vista kanban.
+
+-Añadir funcionalidad de informes.
+
+-Añadir nueva clase de gastos.
