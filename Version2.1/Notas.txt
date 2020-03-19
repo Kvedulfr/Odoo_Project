@@ -1,0 +1,15 @@
+Mejoras
+-Añadido filtros y agrupaciones por clientes.
+-Al agrupar hace la sumatoria de precios de los pedidos por cada cliente.
+-Añadido vista kanban en pedidos. Comprobado que funciona el agrupar y filtros.
+-Cambiado el campo pagado de tipo booleano a Selection por motivos de interfaz con kanban.
+-Agregado el agrupar por tipo de cofección.
+
+
+
+Objetivos futuros
+-Agrupacion mensual -->Mirar: https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-group-by-day-25139
+-Añadir restriciones en fechas para que no inserte una fecha pagada o de recogida antes que la fecha de pedido.
+-Insertar campo binario en pedidos para insertar fotografias en pedidos para la vista kanban.
+-Añadir funcionalidad de informes.
+-Añadir nueva clase de gastos.
