@@ -99,3 +99,22 @@
 -Añadir funcionalidad de informes.
 
 -Añadir nueva clase de gastos.
+
+# Version 2.3
+
+## Mejoras
+
+-Mejoras en la interfaz de formulario con separacion por grupos
+
+-Agregado campo imagen para kanban y formulario
+
+-Mejorado la estructura del kanban en el pedido
+
+
+## Mejoras futuras
+
+-Agrupacion mensual -->Mirar: https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-group-by-day-25139
+
+-Añadir funcionalidad de informes. --> https://github.com/PacktPublishing/Odoo-10-Development-Essentials/tree/master/Chapter%2010/reports
+
+-Añadir nueva clase de gastos.
