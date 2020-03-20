@@ -60,20 +60,41 @@
                     <!--oe_highlight para darle color al fondo del boton -->
                 		<button name="limpiar_registros" type="object" string="Limpiar" class="oe_highlight"/>
 										
-            		</header>
+            		</header>					
+					<sheet>
+						
 					
-					<sheet>                   
-						<group>
-							<field name="t_pedido"/>
-					        <field name="fecha_p"/> 
-                            <field name="fecha_pago"/>
-                            <field name="fecha_r"/>                    
-                            <field name="pagado"/>
-                            <field name="precio"/>
-                            <field name="descripcion"/>
-                            <field name="cliente"/>
-                           
-						</group>
+
+					        <div>                 
+					         <h2>Información básica</h2>
+						     <group>						
+						     <field name="cliente"/>
+							 <field name="t_pedido"/>
+							 <field name="fecha_p"/>
+							 <field name="precio"/>
+							</group>
+				  			</div>
+
+							<div>
+							<h2>Descripción de pedido</h2>
+							<group>
+							 <field name="pagado"/>
+                            <field name="descripcion"/>                   
+							</group>
+					  		</div>
+							
+							<div>
+							<h2>Fecha de pago y recogida</h2>
+							<group>
+                               <field name="fecha_pago"/>
+                               <field name="fecha_r"/> 
+							</group> 
+							</div>
+							
+							<group>
+							<field name="image" widget="image" />
+						    </group>
+							
                         
 						</sheet>
 				</form>
@@ -89,29 +110,45 @@
               
                 
                 <templates>
-                    <t t-name="kanban-tooltip">
-                        <field name="cliente" />
-                    </t>
+                   
+
+
                     <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_card" class="text-center" >
-                            <div class="text-uppercase">
+				
+                        <div t-attf-class="oe_kanban_card"  >
+						
+								
+                             <img t-att-src="kanban_image('modista.pedido', 'image', record.id.raw_value)" align="right" height="140" width="100" />
+                            
+                            
+							
                                 <strong>
+								<p align="left">Cliente: 
 									<a type="open">	
                                      <field name="cliente" />
 									</a>
+									</p>
                                 </strong>
-                            </div>
+                           
                            
                             <em>
-							<strong>Descripcion: </strong><field name="descripcion"/> 
-														
+							<p align="left">
+							<strong>
+							Descripcion: 
+							</strong><field name="descripcion"/> 
+							</p>							
                             </em>
 
-							<div>
+							<div class="oe_kanban_footer">
+							<div> 
 							<strong>
-						 	 Precio: <field name="precio"/> €
+						 	<h3> Precio: <field name="precio"/> €</h3>
 							</strong>
 							</div>
+							</div>
+							
+
+							
 
                         </div>
                     </t>

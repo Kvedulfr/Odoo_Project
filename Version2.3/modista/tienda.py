@@ -6,7 +6,7 @@ from odoo.exceptions import UserError, AccessError, ValidationError
 class cliente(models.Model):
 	#Nombre que vamos a usar para referirnos a nuestra clase en las vistas
 	_name= 'modista.cliente'
-	#Sirver para indicar que campo se va a visualizar en el menu de many2one (display)
+	#Sirve para indicar que campo se va a visualizar en el menu de many2one (display)
 	_rec_name='nombre'
 	_sql_constraints = [
     	  ('telefono_unique',
@@ -55,6 +55,7 @@ class pedido(models.Model):
 	cliente=fields.Many2one('modista.cliente','Cliente',required="true")
 	precio= fields.Float(string="Precio",  group_operator="sum")
 	descripcion= fields.Text('Descripcion de Pedido', required=True)
+	image= fields.Binary('Imagen')
 	
 	
     #Enlace de los atributos de fields https://odoo-new-api-guide-line.readthedocs.io/en/latest/fields.html

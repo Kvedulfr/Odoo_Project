@@ -59,12 +59,14 @@
 										
             		</header>
 					
-					<sheet>                   
+					<sheet> 
+                    <div> 
+                    <h2>Datos personales</h2>                
 						<group>
 							  <field name="nombre"/>
                               <field name="telefono"/>
 						</group>
-                        
+                        </div>
 						</sheet>
 				</form>
 			</field>
