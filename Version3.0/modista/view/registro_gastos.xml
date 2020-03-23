@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_modista_gastos_tree">
+			<field name="name">view.modista.gastos.tree</field>
+			<field name="model">modista.gastos</field>
+			<field name="arch" type="xml">
+            <!--Nombre de los campos y orden en los que va aparecer-->
+				<tree string="Lista Compras">
+					<field name="nombre_p"/> 
+                    <field name="cantidad"/>
+                    <field name="coste"/>                   
+                    <field name="fecha_c"/>                                           
+				</tree>
+			</field>
+    </record>
+
+  <record model="ir.ui.view" id="view_modista_gastos_form">
+			<field name="name">view.modista.gastos.form</field>
+			<field name="model">modista.gastos</field>
+			<field name="arch" type="xml"> <!--Importantisimo ponerlo-->
+				<form string="gastos form">
+					<header>
+                    <!--oe_highlight para darle color al fondo del boton -->
+                		<button name="limpiar_registros" type="object" string="Limpiar" class="oe_highlight"/>
+										
+            		</header>
+					
+					<sheet> 
+                    <div> 
+                    <h2>Datos del producto</h2>                
+						<group>
+							<field name="nombre_p"/> 
+                            <field name="cantidad"/>
+                            <field name="coste"/>                   
+                            <field name="fecha_c"/>
+                            
+						</group>
+                        </div>
+
+
+                        <div>
+                            <h2>Datos adicionales</h2>
+                            <group>
+                             <field name="descripcion"/>    
+                            </group>
+                        </div>
+						</sheet>
+				</form>
+			</field>
+		</record>
+
+
+  	<record model="ir.actions.act_window" id="listar_gastos">
+			<field name="name">Control de Gastos</field>
+			<field name="res_model">modista.gastos</field>
+			<field name="view_mode">tree,form</field>
+		</record> 
+  </data>
+ </odoo>

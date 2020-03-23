@@ -118,3 +118,24 @@
 -Añadir funcionalidad de informes. --> https://github.com/PacktPublishing/Odoo-10-Development-Essentials/tree/master/Chapter%2010/reports
 
 -Añadir nueva clase de gastos.
+
+# Version 3
+
+## Mejoras
+-Arreglado problemas con el boton limpiar en pedidos
+
+-Añadido grafico mensual en pedidos (funciona con filtros y agrupaciones).
+
+-Añadido nueva clase gastos.
+
+-Cambiado la estructura del menu.
+
+-Añadida vista para gastos (tree y form).
+
+## Mejoras futuras
+
+-Añadir gráfico mensual para gastos.
+
+-Mejorar botones de limpiar.
+
+-Añadir funcionalidad de informes. --> https://github.com/PacktPublishing/Odoo-10-Development-Essentials/tree/master/Chapter%2010/reports
