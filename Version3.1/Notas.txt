@@ -1,0 +1,39 @@
+---Mejoras---
+-Añadido informe para imprimir el pedido.
+
+
+---Mejoras futuras
+-Añadir gráfico mensual para gastos.
+-Añadir informe de gastos.
+-Mejorar botones de limpiar.
+-Añadir funcionalidad de informes. --> https://github.com/PacktPublishing/Odoo-10-Development-Essentials/tree/master/Chapter%2010/reports
+
+Observaciones Profesor:
+
+Revisión:
+
+- Tanto en clientes como en gastos, si en el formulario, estamos rellenando datos y pulsamos en “Descartar” se graba el registro aunque no estén rellenos los campos principales.
+
+- En gastos, al limpiar el registro, la fecha de compra se actualiza a la de hoy, aun cuando no se había puesto ninguna. ¿Esto lo habías planteado así ?
+
+- En pedidos se puede poner a “No pagado” y luego poner la fecha del pago.
+
+Ampliación:
+- Representar en el gráfico los gastos y los beneficios
+
+- Obtener el total del gasto en la pantalla de “Registros de compra” .
+
+Incluso poder obtenerlo entre unas fechas determinadas (como opción de menú)
+
+- En la vista Kanban, en las tarjetas incluir más información sobre el pedido, tal como si está o no pagado y si está o no entregado, así como la fecha del pedido.
+
+- Los pedidos ya pagados y entregados que dejen de aparecer en la Registro de pedidos. Pero que no sean borrados por si se necesitan,. Puedes crear un “histórico” o “registro de entregados” con los pedidos pagados y entregados.
+
+- Ordenar los pedidos por fecha de pedido.
+
+- Clasificar los pedidos por etapas: como por ejemplo “En proceso” y “Terminados”
+
+- Sería necesario el poder obtener informes.
+
+- ¿Has pensado dar acceso a los clientes a través de web o api externa? Para que puedan ver cómo están sus pedidos, si en proceso o terminados. O incluso al administrador. Esto puedes estudiarlo.
+

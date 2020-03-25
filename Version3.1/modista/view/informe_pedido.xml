@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <data>
+            
+            
+           
+	        <report id="report_custom"
+                string="Resguardo del Pedido"
+                model="modista.pedido"
+                report_type="qweb-pdf"
+                name="modista.report_custom_template"
+                menu = "True"/>
+            
+            <template id="assets_common" name="modista" inherit_id="report.assets_common">
+                <xpath expr="." position="inside">
+                    <link href="/modista/view/informe.css" rel="stylesheet"/>        
+                </xpath>
+            </template>
+
+            <template id="report_custom_template">
+             <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <div class="header">
+                    <div id="cabezera">
+                      <p>Mi empresa/logo</p>
+                      </div>
+                    </div>
+                    <div class="page">
+                        <h2>Resguardo del Pedido</h2>
+						<div class="container">
+						    <h2>Información Básica</h2>
+                    	    
+                        	    <t t-foreach="docs" t-as="o">
+                        		    <h3>Cliente:  <span class="basic" t-field="o.cliente" /></h3> <br></br>         
+
+                           		    <h3>Tipo de pedido: <span class="basic" t-field="o.t_pedido" /></h3> <br></br>
+                                    <h3>Tipo de pedido: <span class="basic" t-field="o.fecha_p" /></h3> <br></br>    
+                                </t>                     	    	
+                            		    
+						</div>
+                        <br></br>
+
+                        <div class="container">                            	
+                            <h2>Datos Pedido</h2>
+                               <t t-foreach="docs" t-as="e">
+
+                        		   <h3>Descripcion del pedido: <span class="basic" t-field="e.descripcion"/></h3><br></br>                           
+                                   <h3>Estado del pedido: <span class="basic" t-field="e.pagado"/></h3><br></br>
+                                   <h3>Fecha de pago: <span class="basic" t-field="e.fecha_pago"/></h3><br></br>
+                                   <h3>Fecha de recogida: <span class="basic" t-field="e.fecha_r"/></h3><br></br>
+                                    
+                                
+                        	    </t>
+
+
+                        </div>
+
+                                                    	
+                           <div>
+                               <t t-foreach="docs" t-as="f">
+
+                        		   <h3 id="esquina">Importe: <span id="basic" t-field="f.precio"/>€</h3>
+                                    
+                                
+                        	    </t>
+                            </div>
+
+                     
+
+					
+                     
+
+
+					
+
+
+
+                    </div>
+                    <div class="footer">
+                        <small>Resguardo</small>
+                    </div>
+                </t>
+             </t>
+            </template>
+             
+        </data>        
+    </odoo>
