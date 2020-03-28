@@ -161,7 +161,7 @@
 
 ## Mejoras
 
--Añadido restricción para que no se pueda insertar una fecha de pago si el producto esta pagado.
+-Añadido restricción para que no se pueda insertar una fecha de pago si el producto no esta pagado.
 
 -Añadido restricción para que no se pueda insertar una fecha de recogida anterior a la del pedido.
 
