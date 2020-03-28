@@ -142,31 +142,62 @@
 
 # Version 3.1
 
-## Mejoras---
+## Mejoras
 -Añadido informe para imprimir el pedido.
+-Css en el informe.
 
 
 ## Mejoras futuras
+
 -Añadir gráfico mensual para gastos.
+
 -Añadir informe de gastos.
+
 -Mejorar botones de limpiar.
--Añadir funcionalidad de informes. --> https://github.com/PacktPublishing/Odoo-10-Development-Essentials/tree/master/Chapter%2010/reports
+
+-Añadir informes para gasto.
+
+# Version 3.2
+
+## Mejoras
+
+-Añadido restricción para que no se pueda insertar una fecha de pago si el producto esta pagado.
+
+-Añadido restricción para que no se pueda insertar una fecha de recogida anterior a la del pedido.
+
+-Cambiado el tipo de Teléfono por Integer.
+
+-Añadido patrón y restriciones para el telefono (solo se puede colocar de esta manera 123-123-123 o un 0 para aquellos clientes que no quieran darlo)
+
+-Eliminado restricción para que solo se pueda insertar un solo teléfono (debido a cliente familiares entre ellos y para evitar conflictos con la la restricion anterior)
+
+-Añadido restricción para que solo se pueda insertar un solo nombre.
+
+-Mejorado restricción para el campo nombre de clientes evitando que se inserte incialmente un espacio en blanco
+
+-Eliminado problema con limpiar y la fecha recogida y mejorando la restricción de esta para pedidos
+
+-Añadido campo One2many en clientes para poder ver desde clientes los pedidos de cada uno.
+
+
+
+
+
 
 # Observaciones Profesor:
 
 ## Revisión:
 
-- Tanto en clientes como en gastos, si en el formulario, estamos rellenando datos y pulsamos en “Descartar” se graba el registro aunque no estén rellenos los campos principales.
+- Tanto en clientes como en gastos, si en el formulario, estamos rellenando datos y pulsamos en “Descartar” se graba el registro aunque no estén rellenos los campos principales. ("En un principio funciona")
 
-- En gastos, al limpiar el registro, la fecha de compra se actualiza a la de hoy, aun cuando no se había puesto ninguna. ¿Esto lo habías planteado así ?
+- En gastos, al limpiar el registro, la fecha de compra se actualiza a la de hoy, aun cuando no se había puesto ninguna. ¿Esto lo habías planteado así ? 
 
-- En pedidos se puede poner a “No pagado” y luego poner la fecha del pago.
+- En pedidos se puede poner a “No pagado” y luego poner la fecha del pago. ("Arreglado")
 
 ## Ampliación:
-
 - Representar en el gráfico los gastos y los beneficios
 
-- Obtener el total del gasto en la pantalla de “Registros de compra”. Incluso poder obtenerlo entre unas fechas determinadas (como opción de menú).
+- Obtener el total del gasto en la pantalla de “Registros de compra”  (Incluso poder obtenerlo entre unas fechas determinadas (como opción de menú)
 
 - En la vista Kanban, en las tarjetas incluir más información sobre el pedido, tal como si está o no pagado y si está o no entregado, así como la fecha del pedido.
 
@@ -176,7 +207,7 @@
 
 - Clasificar los pedidos por etapas: como por ejemplo “En proceso” y “Terminados”
 
-- Sería necesario el poder obtener informes.
+- Sería necesario el poder obtener informes. ("Agregado Resguardo en Pedidos")
 
 - ¿Has pensado dar acceso a los clientes a través de web o api externa? Para que puedan ver cómo están sus pedidos, si en proceso o terminados. O incluso al administrador. Esto puedes estudiarlo.
 

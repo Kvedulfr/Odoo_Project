@@ -1,0 +1,19 @@
+Mejoras
+
+-Añadido restricion para que no se pueda insertar una fecha de pago si el producto esta pagado.
+
+-Añadido restricion para que no se pueda insertar una fecha de recogida anterior a la del pedido.
+
+-Cambiado el tipo de Telefono por Integer.
+
+-Añadido patrón y restriciones para el telefono (solo se puede colocar de esta manera 123-123-123 o un 0 para aquellos clientes que no quieran darlo)
+
+-Eliminado restricion para que solo se pueda insertar un solo teléfono (debido a cliente familiares entre ellos y para evitar conflictos con la la restricion anterior)
+
+-Añadido restricion para que solo se pueda insertar un solo nombre.
+
+-Mejorado restricion para el campo nombre de clientes evitando que se inserte incialmente un espacio en blanco
+
+-Eliminado problema con limpiar y la fecha recogida y mejorando la restricción de esta para pedidos
+
+-Añadido campo One2many en clientes para poder ver desde clientes los pedidos de cada uno.
