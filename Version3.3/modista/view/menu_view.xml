@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	
+		
+		
+
+
+  	<!-- Aqui creamos en el menu principal nuestro enlace al modulo  -->
+		<menuitem id="menu_pedido" name="Modista" sequence="30"/>
+		
+	
+
+        <!-- Menu secundario Clientes -->
+		<menuitem id="menu_cliente_view" name="Control Clientes" parent="menu_pedido"/>
+
+	
+			<!-- Menu secundario Pedidos-->
+		<menuitem id="menu_pedido_view" name="Control Pedidos" parent="menu_pedido"/>
+		
+		<!-- Menu secundario Gastos -->
+		<menuitem id="menu_gasto_view" name="Control Gastos" parent="menu_pedido"/>  
+		
+
+        <!-- Submenu de Clientes TEST -->
+		<menuitem id="menu_listar_cliente" name="Registro de Clientes" parent="menu_cliente_view" action="listar_clientes"/> 	 		
+            <!-- Submenu de Pedidos/Clientes -->            
+		<menuitem id="menu_listar_pedido" name="Registro de Pedidos" parent="menu_pedido_view" action="listar_pedidos"/>
+
+		<!-- Submenu de Gastos-->
+		<menuitem id="menu_listar_gasto" name="Registro de Gastos" parent="menu_gasto_view" action="listar_gastos"/>
+
+
+
+
+
+        
+ 		
+
+</data>
+  </odoo>

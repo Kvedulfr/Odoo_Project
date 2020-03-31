@@ -1,0 +1,13 @@
+--Mejoras
+-Arreglado problema que no te permita instalar el modulo debido a problemas con informes( hacia falta el modulo informes).
+-Arreglado problema en el que no saltaba la restriccion de fecha de pago cuando insertabas una y el pedido no estaba pagado.
+-Añadido restricion a fecha de pago cuando el pedido esta pagado y no se inserta una.
+-Mejorado apariencia del el informe de resguardo de pedido.
+-Añadido total de gastos.
+-Añadido campo total para pedidos (con restriciones de que solo recoge los pedido que no estan pagados)
+
+
+--Mejoras futuras
+-Añadir un campo en pedidos para pago parciales
+
+https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-disable-edit-form-when-state-is-done-of-form-121296
