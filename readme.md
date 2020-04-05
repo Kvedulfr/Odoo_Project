@@ -2,6 +2,7 @@
 # Version 1.1
 
 ## Mejoras
+
 - Rectructuración del modulo.
 
 - Clases hechas de nuevo para evitar problemas.
@@ -9,7 +10,9 @@
 - Campo Many2one insertado.
 
 ## Eliminado
+
 - Clases anteriores.
+
 - Kaban.
 
 ## Mejoras futuras
@@ -29,7 +32,9 @@
 - Añadir restriciones (mirar el modulo de pedro y esta pagina https://www.odoo.com/es_ES/forum/ayuda-1/question/unique-sql-constraint-for-a-field-on-a-exisitng-database-odoo-10-124445 )
 
 # Version 2.0
+
 # Mejoras
+
 - Estructura de carpetas y archivos del modulo.
 
 - He añadido kanban en clientes con funcionalidad de editar.
@@ -48,8 +53,10 @@
 - Añadir nueva clase de gastos.
 
 # Version 2.1
+
 ## Mejoras
--Añadido filtros y agrupaciones por clientes.
+
+- Añadido filtros y agrupaciones por clientes.
 
 - Al agrupar hace la sumatoria de precios de los pedidos por cada cliente correctamente.
 
@@ -62,7 +69,8 @@
 
 
 ## Objetivos futuros
--Agrupacion mensual -->Mirar: https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-group-by-day-25139
+
+- Agrupacion mensual -->Mirar: https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-group-by-day-25139
 
 - Añadir restriciones en fechas para que no inserte una fecha pagada o de recogida antes que la fecha de pedido.
 
@@ -75,6 +83,7 @@
 # Version 2.2
 
 ## Mejoras
+
 - Agregado restricciones en fechas.
 
 - Agregado restriciones en precio.
@@ -92,6 +101,7 @@
 
 
 ## Objetivos futuros
+
 - Agrupacion mensual -->Mirar: https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-group-by-day-25139
 
 - Insertar campo binario en pedidos para insertar fotografias en pedidos para la vista kanban.
@@ -198,6 +208,28 @@
 https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-disable-edit-form-when-state-is-done-of-form-121296
 
 
+# Version 3.4
+
+## Mejoras
+
+- Añadido reseteo del campo adelantado en caso de que haya un cambio en el campo pagado por adelantado.
+
+- Cambiado el campo total para que sea el campo a deber donde se verá lo que debe el cliente y en caso de que sea negativo lo que debe la modista.
+
+- Añadido mas campos para la vista kanban.
+
+- Eliminado el boton limpiar ya que daba conflicto con las contrains que si habia un campo que saltase la constrains y se pulsaba limpiar no te dejaba limpiar y ademas si luego pulsabas descartar se guardaba el registro.
+
+- Agregado Beneficios para preparar la siguiente parte.
+
+## Futuras mejoras
+
+- Alternativa al boton limpiar.
+
+- Hacer que los gastos y los pedidos se confirmen para guardarlos en el modulo beneficios para realizar un grafico y registro para ver los beneficios y gastos mensuales.
+
+
+
 # Observaciones Profesor:
 
 ## Revisión:
@@ -225,4 +257,7 @@ https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-disable-edit-form-when-
 - Sería necesario el poder obtener informes. ("Agregado Resguardo en Pedidos")
 
 - ¿Has pensado dar acceso a los clientes a través de web o api externa? Para que puedan ver cómo están sus pedidos, si en proceso o terminados. O incluso al administrador. Esto puedes estudiarlo.
+
+
+
 

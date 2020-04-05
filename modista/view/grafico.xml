@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+        <!-- Vista de gráfico-->
+		<record id="view_modista_grafico_graph" model="ir.ui.view">
+   		 <field name="name">view.modista.cliente.graph</field>
+   		 <field name="model">modista.grafico</field>
+   		 <field name="arch" type="xml">
+       		 <graph type="bar">
+           	 	          		 
+           		 <field name="fecha_p" interval="month" />
+            	 <field name="precio" type="measure" />
+       		 </graph>
+   		 </field>
+		</record>
+
+          <!-- Encabezado de la ventana principal en la que tenemos el titulo de Control de clientes  TEST-->
+		<record model="ir.actions.act_window" id="beneficios">
+			<field name="name">Beneficios</field>
+			<field name="res_model">modista.grafico</field>
+			<field name="view_mode">graph</field>
+		</record>
+  </data>
+ </odoo>
