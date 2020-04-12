@@ -228,7 +228,25 @@ https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-disable-edit-form-when-
 
 - Hacer que los gastos y los pedidos se confirmen para guardarlos en el modulo beneficios para realizar un grafico y registro para ver los beneficios y gastos mensuales.
 
+# Version 4 (En proceso)
 
+- Creacion de un apartado para comprobar los beneficios enfrentado a modo de gráfico lo precios de pedidos pagados y gastos
+
+- Espero poder añadir un metodo para hacer la comprobacion de manera mensual ademas de que se capaz de elegirlo por el usuario
+
+## Recursos para esta version
+
+Manejar varios campos de Many2One:
+
+https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-display-custom-value-in-many2one-field-in-odoo-11-144209
+
+https://stackoverflow.com/questions/35221843/odoo-name-in-dropdown-for-many2one-field
+
+https://stackoverflow.com/questions/52163045/how-to-manage-a-different-display-name-for-two-many2one-pointing-to-the-same-mod
+
+https://groups.google.com/forum/#!topic/openerp-spain-users/XkldvElZODY
+
+https://groups.google.com/forum/#!topic/openerp-spain-users/-rzQE64ajRc -COnsulta
 
 # Observaciones Profesor:
 
