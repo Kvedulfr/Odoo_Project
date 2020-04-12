@@ -1,0 +1,13 @@
+
+
+Manejar varios campos de Many2One:
+
+https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-display-custom-value-in-many2one-field-in-odoo-11-144209
+
+https://stackoverflow.com/questions/35221843/odoo-name-in-dropdown-for-many2one-field
+
+https://stackoverflow.com/questions/52163045/how-to-manage-a-different-display-name-for-two-many2one-pointing-to-the-same-mod
+
+https://groups.google.com/forum/#!topic/openerp-spain-users/XkldvElZODY
+
+https://groups.google.com/forum/#!topic/openerp-spain-users/-rzQE64ajRc -COnsulta

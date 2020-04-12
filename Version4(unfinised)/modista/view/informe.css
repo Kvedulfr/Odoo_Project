@@ -1,0 +1,41 @@
+h3 { margin-left: 1em;}
+p { color: purple;}
+.page {
+    margin-top: 10em;
+}
+.container { margin-top: 2em; border: 1px solid; border-radius: 8px; }
+h2 { text-align: center;
+     text-decoration: underline solid rgb(68, 68, 68);}
+.basic {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 20px;
+    letter-spacing: 0px;
+    word-spacing: -0.4px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: capitalize;
+    }
+
+#des { 
+    margin-left: 1em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 18px;
+    letter-spacing: 0px;
+    word-spacing: -0.4px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: capitalize;
+}
+#esquina {
+    position:absolute;
+    margin-left: 27em;
+    margin-top: 3em;
+
+
+}
