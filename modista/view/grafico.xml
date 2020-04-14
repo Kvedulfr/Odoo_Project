@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
  <odoo>
   <data>
+  <record model="ir.actions.act_window" id="Grafico">
+			<field name="name">Beneficios</field>
+			<field name="res_model">modista.grafico</field>
+			<field name="view_mode">graph,tree</field>
+			
+		</record>
    <record model="ir.ui.view" id="view_modista_grafico_form">
-
-
 			<field name="name">view.modista.graph.form</field>
 			<field name="model">modista.grafico</field>
 			<field name="arch" type="xml"> <!--Importantisimo ponerlo-->
@@ -11,18 +15,19 @@
 					<header>
                     <!--oe_highlight para darle color al fondo del boton -->
                 		<button name="Prueba" type="object" string="Prueba" class="oe_highlight"/>
+						<!-- poneindo el tipo action y haciendo la llamada de la id con %
+							 y terminando con d hacemos que nos habra el modo gráfico-->
+					
 							 			
             		</header>					
 					<sheet>
 					<h2>Prueba</h2>
-					<div>
-
-						 <field name="gasto"/>
-						 <field name="descripcion"/>
-
-            	 		 <field name="beneficio"/>
-					</div>
-					
+					<group>					
+						 <field name="beneficios" type="measure"/>
+						 <field name="gastos" type="row"/>	
+						 <field name="fecha" interval="month"/>					 
+					</group>
+						<button name="%(Grafico)d" type="action" string="Ver Gráfico" class="oe_highlight"/>
                         
 						</sheet>
 				</form>
@@ -36,8 +41,7 @@
 			<field name="arch" type="xml">
             <!--Nombre de los campos y orden en los que va aparecer-->
 				<tree string="Lista Pedidos">
-				 <field name="gasto"/>
-            	 <field name="beneficio"/>
+			
 				</tree>
 			</field>
    		</record>
@@ -47,9 +51,10 @@
    		 <field name="model">modista.grafico</field>
    		 <field name="arch" type="xml">
        		 <graph type="bar">
-           	 	          		 
-           		 <field name="gasto" type="meansure" />
-            	 <field name="beneficio" type="measure" />
+           	 	       <field name="beneficios" />
+					   <field name="gastos"/>	    		 
+           		
+            	 
        		 </graph>
    		 </field>
 		</record>
@@ -58,7 +63,11 @@
 		<record model="ir.actions.act_window" id="beneficios">
 			<field name="name">Beneficios</field>
 			<field name="res_model">modista.grafico</field>
-			<field name="view_mode">graph,tree,form</field>
+			<field name="view_mode">form,graph,tree</field>
+			<!-- Con esta linea ocultamos los botones de guardar y descartar-->
+			<field name="target">inline</field>
 		</record>
+
+		
   </data>
  </odoo>

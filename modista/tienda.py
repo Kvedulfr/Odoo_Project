@@ -159,9 +159,9 @@ class gastos(models.Model):
 	cantidad=fields.Integer(string="Cantidad",required=True)
 	coste=fields.Float(string="Precio/Unid", group_operator="sum")
 	descripcion=fields.Text(string="Comentario")
-	fecha_c=fields.Date(string="Fecha de compra")
-	#Para hacer el grafico de beneficio
-	gastos=fields.One2many('modista.grafico','gasto','Gastos')
+	fecha_c=fields.Date(string="Fecha de compra", required=True)
+	
+
 
 	#Campo computado
 	@api.one
@@ -169,6 +169,7 @@ class gastos(models.Model):
 		self.total=self.coste * self.cantidad
 	
 	total=fields.Float(string="Total pagado",compute= compute_field)
+	costet=total
 
 	#Boton para limpiar el registro
 	@api.multi 
@@ -197,23 +198,35 @@ class gastos(models.Model):
 
 class grafico(models.Model):
 	_name = 'modista.grafico'
-	descripcion=fields.Text(string="Comentario")
-	beneficio=fields.Many2one('modista.pedido','Ganancias')
-	gasto=fields.Many2one('modista.gastos','Gastos')
 
+	gastos=fields.Integer(string="Gasto Total")
+	beneficios=fields.Integer(string="Beneficios Totales")
+	fecha=fields.Date(string="Fecha")
+	
 
 
 	@api.one
 	def Prueba(self):
-		self.env.cr.execute('SELECT sum(coste) FROM modista_gastos')
 		
-		if self.env.cr.rowcount:
-			#res = self.env.cr.fetchall()[0]
-			#res = self.env.cr.dictfetchall()
-			res = self.env.cr.fetchone()[0]
-			self.descripcion = res
+		self.env.cr.execute('SELECT sum(coste * cantidad) FROM modista_gastos')
+		#res = self.env.cr.fetchall()[0]
+		#res = self.env.cr.dictfetchall()
+		res = self.env.cr.fetchone()[0]
+		if res!=None:
+			self.gastos = res
 		else:
-			self.descripcion = "No se ha encontrado nada"
+			self.gastos = 0
+
+		self.env.cr.execute('SELECT sum(precio) FROM modista_pedido where pagado = \'1\' ')
+		res = self.env.cr.fetchone()[0]
+		if res!=None:
+			self.beneficios = res
+		else:
+			self.beneficios = 0	
+
+
+						
+	
 
 
 		

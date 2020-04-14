@@ -1,4 +1,17 @@
 
+Mejoras
+
+-Cambiamos la fecha de los gastos para que sea obligatoria ponerla para poder realizar bien la grafica de beneficios
+
+-Formulario en beneficios para elegir el mes del año que se quiera comparar o el total de beneficios.
+
+-Grafica de comparacion
+
+Futuras mejora:
+
+-Se añadirá un historial de registros pagados
+
+-Se añadirá un historial de registros de otros sin pagar
 
 Manejar varios campos de Many2One:
 
@@ -11,3 +24,5 @@ https://stackoverflow.com/questions/52163045/how-to-manage-a-different-display-n
 https://groups.google.com/forum/#!topic/openerp-spain-users/XkldvElZODY
 
 https://groups.google.com/forum/#!topic/openerp-spain-users/-rzQE64ajRc -COnsulta
+
+https://github.com/Odoo-10-test/trucos_odoo
