@@ -199,15 +199,19 @@ class gastos(models.Model):
 class grafico(models.Model):
 	_name = 'modista.grafico'
 
-	gastos=fields.Integer(string="Gasto Total")
-	beneficios=fields.Integer(string="Beneficios Totales")
-	fecha=fields.Date(string="Fecha")
+	gastos=fields.Float(string="Gasto Total")
+	beneficios=fields.Float(string="Beneficios Totales")
+	fecha=fields.Selection(string="Mes",selection=[('0','-- Elige el mes'),('1','Enero'),('2','Febrero'),('3','Marzo'),('4','Abril'),('5','Mayo'),('6','Junio'),('7','Julio'),('8','Agosto'),('9','Septiembre'),('10','Octubre'),('11','Noviembre'),('12','Diciembre')], default='0', required=True)
+	prueba=fields.Text(string="Pruebas")
 	
 
 
 	@api.one
 	def Prueba(self):
-		
+		if self.fecha == '0':
+			raise ValidationError('Elige una fecha')
+
+		#Usamos extract (month from fecha para recoger datos de ese mes)
 		self.env.cr.execute('SELECT sum(coste * cantidad) FROM modista_gastos')
 		#res = self.env.cr.fetchall()[0]
 		#res = self.env.cr.dictfetchall()
@@ -223,6 +227,13 @@ class grafico(models.Model):
 			self.beneficios = res
 		else:
 			self.beneficios = 0	
+
+		self.env.cr.execute('SELECT extract(month from fecha_c) FROM modista_gastos ')
+		res = self.env.cr.fetchone()[0]
+		if res!=None:
+			self.prueba= res
+		else:
+			self.prueba = 0		
 
 
 						

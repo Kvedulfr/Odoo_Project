@@ -23,9 +23,10 @@
 					<sheet>
 					<h2>Prueba</h2>
 					<group>					
-						 <field name="beneficios" type="measure"/>
-						 <field name="gastos" type="row"/>	
-						 <field name="fecha" interval="month"/>					 
+						 <field name="beneficios" />
+						 <field name="gastos" />	
+						 <field name="fecha" />	
+						 <field name="prueba"/>				 
 					</group>
 						<button name="%(Grafico)d" type="action" string="Ver Gráfico" class="oe_highlight"/>
                         
@@ -51,8 +52,9 @@
    		 <field name="model">modista.grafico</field>
    		 <field name="arch" type="xml">
        		 <graph type="bar">
-           	 	       <field name="beneficios" />
-					   <field name="gastos"/>	    		 
+           	 	        <field name="beneficios" type="measure"/>
+						 <field name="gastos" type="col"/>	
+						 <field name="fecha" type="row"/>	    		 
            		
             	 
        		 </graph>
