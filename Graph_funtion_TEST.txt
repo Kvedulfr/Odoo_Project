@@ -1,0 +1,33 @@
+@api.one
+	def Prueba(self):
+		if self.fecha == '0':
+			raise ValidationError('Elige una fecha')
+
+		#Usamos extract (month from fecha para recoger datos de ese mes)
+		self.env.cr.execute('SELECT sum(coste * cantidad) FROM modista_gastos')
+		#res = self.env.cr.fetchall()[0]
+		#res = self.env.cr.dictfetchall()
+		if self.env.cr.fetchone()[0]!=None:
+			self.env.cr.execute('SELECT sum(coste * cantidad) FROM modista_gastos')
+			res = self.env.cr.fetchone()[0]
+			if res!=None:
+				self.gastos = res
+			else:
+				self.gastos = 0
+		else:
+			self.gastos = 0	
+
+		self.env.cr.execute('SELECT sum(precio) FROM modista_pedido where pagado = \'1\' ')
+		if self.env.cr.fetchone()[0]!=None:
+			self.env.cr.execute('SELECT sum(precio) FROM modista_pedido where pagado = \'1\' ')
+			res = self.env.cr.fetchone()[0]
+			if res!=None:
+				self.beneficios = res
+			else:
+				self.beneficios = 0	
+		else:
+			self.beneficios = 0	
+
+		
+		res = self.beneficios - self.gastos
+		self.prueba= res

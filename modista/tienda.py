@@ -200,40 +200,114 @@ class grafico(models.Model):
 	_name = 'modista.grafico'
 
 	gastos=fields.Float(string="Gasto Total")
-	beneficios=fields.Float(string="Beneficios Totales")
-	fecha=fields.Selection(string="Mes",selection=[('0','-- Elige el mes'),('1','Enero'),('2','Febrero'),('3','Marzo'),('4','Abril'),('5','Mayo'),('6','Junio'),('7','Julio'),('8','Agosto'),('9','Septiembre'),('10','Octubre'),('11','Noviembre'),('12','Diciembre')], default='0', required=True)
-	prueba=fields.Text(string="Pruebas")
-	
+	ganancias=fields.Float(string="Ganancias Totales")
+	fecha=fields.Selection(string="Mes",selection=[('0','-- Elige periodo de tiempo'),('13','Anual'),('1','Enero'),('2','Febrero'),('3','Marzo'),('4','Abril'),('5','Mayo'),('6','Junio'),('7','Julio'),('8','Agosto'),('9','Septiembre'),('10','Octubre'),('11','Noviembre'),('12','Diciembre')], default='0', required=True)
+	beneficios=fields.Float(string="Beneficio mensual")
+	confi=fields.Boolean(string="Confirmacion de boton",default='False')
+
+	@api.one
+	def confirmar(self):
+		if self.fecha != '0':
+			#Borramos las anteriores busquedas guardadas
+			self.env.cr.execute('DELETE FROM modista_grafico WHERE create_date <> (SELECT max(create_date) FROM modista_grafico )')
+
+			#Iniciamos la consulta para el modulo de Gastos (Gastos)
+			self.env.cr.execute('Select sum(coste * cantidad) from modista_gastos where extract(month from fecha_c) =' + self.fecha )
+			if self.env.cr.fetchone()[0]!=None:#Comprobamos que existe registros (Para que halla tiene que es)
+				#Volvemos a iniciar la consulta porque se pierde los datos despues de la condicion (No se porque)
+				self.env.cr.execute('SELECT sum(coste * cantidad) FROM modista_gastos where extract(month from fecha_c) =' + self.fecha)
+				res = self.env.cr.fetchone()[0]
+				if res!=None:
+					self.gastos = res
+				else:
+					self.gastos = 0
+			else:
+				self.gastos = 0
+
+			#Iniciamos la consulta para el modulo de Pedidos (Ganancias)
+			self.env.cr.execute('SELECT sum(precio) FROM modista_pedido where pagado = \'1\' and extract(month from fecha_p) ='+ self.fecha)
+			if self.env.cr.fetchone()[0]!=None:
+				self.env.cr.execute('SELECT sum(precio) FROM modista_pedido where pagado = \'1\' and extract(month from fecha_p) ='+ self.fecha)
+				res = self.env.cr.fetchone()[0]
+				if res!=None:
+					self.ganancias = res
+				else:
+					self.ganancias = 0	
+			else:
+				self.ganancias = 0
+
+			if self.ganancias ==0 and self.gastos==0:
+				raise ValidationError('No se encuentra registros de beneficios y gastos para esa fecha')		
+				
+			self.beneficios= self.ganancias - self.gastos
+			self.confi = False
+
+
+
+
+
+		else:
+			raise ValidationError('Elige fecha')
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	@api.one
 	def Prueba(self):
 		if self.fecha == '0':
 			raise ValidationError('Elige una fecha')
+		
+		self.env.cr.execute('DELETE FROM modista_grafico')	
 
+		
 		#Usamos extract (month from fecha para recoger datos de ese mes)
 		self.env.cr.execute('SELECT sum(coste * cantidad) FROM modista_gastos')
 		#res = self.env.cr.fetchall()[0]
 		#res = self.env.cr.dictfetchall()
-		res = self.env.cr.fetchone()[0]
-		if res!=None:
-			self.gastos = res
+		if self.env.cr.fetchone()[0]!=None:
+			self.env.cr.execute('SELECT sum(coste * cantidad) FROM modista_gastos')
+			res = self.env.cr.fetchone()[0]
+			if res!=None:
+				self.gastos = res
+			else:
+				self.gastos = 0
 		else:
-			self.gastos = 0
+			self.gastos = 0	
 
 		self.env.cr.execute('SELECT sum(precio) FROM modista_pedido where pagado = \'1\' ')
-		res = self.env.cr.fetchone()[0]
-		if res!=None:
-			self.beneficios = res
+		if self.env.cr.fetchone()[0]!=None:
+			self.env.cr.execute('SELECT sum(precio) FROM modista_pedido where pagado = \'1\' ')
+			res = self.env.cr.fetchone()[0]
+			if res!=None:
+				self.beneficios = res
+			else:
+				self.beneficios = 0	
 		else:
 			self.beneficios = 0	
 
-		self.env.cr.execute('SELECT extract(month from fecha_c) FROM modista_gastos ')
-		res = self.env.cr.fetchone()[0]
-		if res!=None:
-			self.prueba= res
-		else:
-			self.prueba = 0		
+		
+		res = self.beneficios - self.gastos
+		self.prueba= res
+		
 
 
 						

@@ -1,5 +1,5 @@
 
-# Version 1.1
+# Versión 1.1
 
 ## Mejoras
 
@@ -31,7 +31,7 @@
 
 - Añadir restriciones (mirar el modulo de pedro y esta pagina https://www.odoo.com/es_ES/forum/ayuda-1/question/unique-sql-constraint-for-a-field-on-a-exisitng-database-odoo-10-124445 )
 
-# Version 2.0
+# Versión 2.0
 
 # Mejoras
 
@@ -52,7 +52,7 @@
 
 - Añadir nueva clase de gastos.
 
-# Version 2.1
+# Versión 2.1
 
 ## Mejoras
 
@@ -80,7 +80,7 @@
 
 - Añadir nueva clase de gastos.
 
-# Version 2.2
+# Versión 2.2
 
 ## Mejoras
 
@@ -110,7 +110,7 @@
 
 - Añadir nueva clase de gastos.
 
-# Version 2.3
+# Versión 2.3
 
 ## Mejoras
 
@@ -129,7 +129,7 @@
 
 - Añadir nueva clase de gastos.
 
-# Version 3
+# Versión 3
 
 ## Mejoras
 - Arreglado problemas con el boton limpiar en pedidos
@@ -150,7 +150,7 @@
 
 - Añadir funcionalidad de informes. --> https://github.com/PacktPublishing/Odoo-10-Development-Essentials/tree/master/Chapter%2010/reports
 
-# Version 3.1
+# Versión 3.1
 
 ## Mejoras
 
@@ -169,7 +169,7 @@
 
 - Añadir informes para gasto.
 
-# Version 3.2
+# Versión 3.2
 
 ## Mejoras
 
@@ -191,7 +191,8 @@
 
 - Añadido campo One2many en clientes para poder ver desde clientes los pedidos de cada uno.
 
-# Version 3.3
+# Versión 3.3
+
 ## Mejoras
 
 - Arreglado problema que no te permita instalar el modulo debido a problemas con informes( hacia falta el modulo informes).
@@ -228,13 +229,36 @@ https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-disable-edit-form-when-
 
 - Hacer que los gastos y los pedidos se confirmen para guardarlos en el modulo beneficios para realizar un grafico y registro para ver los beneficios y gastos mensuales.
 
-# Version 4 (En proceso)
+# Versión 4 (En proceso)
 
 - Creacion de un apartado para comprobar los beneficios enfrentado a modo de gráfico lo precios de pedidos pagados y gastos
 
 - Espero poder añadir un metodo para hacer la comprobacion de manera mensual ademas de que se capaz de elegirlo por el usuario
 
-## Recursos para esta version
+
+# Versión 4 
+
+## Mejoras
+
+- Cambiamos la fecha de los gastos para que sea obligatoria ponerla para poder realizar bien la grafica de beneficios
+
+- Formulario en beneficios para elegir el mes del año que se quiera comparar o el total de beneficios.
+
+
+
+## Futuras mejoras:
+
+- Se mejorará el funcionamiento del gráfico para que puedas elegir también el año.
+
+- Se añadira una opción para poder comparar entre dos meses. 
+
+- Se añadira una opción para ver los beneficios anuales.
+
+- Se añadirá un historial de registros pagados.
+
+- Se añadirá un historial de registros de otros sin pagar.
+
+## Biografías visitadas:
 
 Manejar varios campos de Many2One:
 
@@ -247,6 +271,12 @@ https://stackoverflow.com/questions/52163045/how-to-manage-a-different-display-n
 https://groups.google.com/forum/#!topic/openerp-spain-users/XkldvElZODY
 
 https://groups.google.com/forum/#!topic/openerp-spain-users/-rzQE64ajRc -COnsulta
+
+https://github.com/Odoo-10-test/trucos_odoo
+
+https://www.odoo.com/es_ES/forum/ayuda-1/question/why-is-my-one2many-field-not-showing-in-form-view-62078
+
+https://www.odoo.com/es_ES/forum/ayuda-1/question/hiding-buttons-depending-on-state-or-value-32440
 
 # Observaciones Profesor:
 

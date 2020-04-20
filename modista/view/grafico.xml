@@ -4,7 +4,7 @@
   <record model="ir.actions.act_window" id="Grafico">
 			<field name="name">Beneficios</field>
 			<field name="res_model">modista.grafico</field>
-			<field name="view_mode">graph,tree</field>
+			<field name="view_mode">graph</field>
 			
 		</record>
    <record model="ir.ui.view" id="view_modista_grafico_form">
@@ -12,49 +12,47 @@
 			<field name="model">modista.grafico</field>
 			<field name="arch" type="xml"> <!--Importantisimo ponerlo-->
 				<form string="grafico form">
-					<header>
-                    <!--oe_highlight para darle color al fondo del boton -->
-                		<button name="Prueba" type="object" string="Prueba" class="oe_highlight"/>
-						<!-- poneindo el tipo action y haciendo la llamada de la id con %
-							 y terminando con d hacemos que nos habra el modo gráfico-->
-					
-							 			
-            		</header>					
+							
 					<sheet>
-					<h2>Prueba</h2>
-					<group>					
-						 <field name="beneficios" />
-						 <field name="gastos" />	
-						 <field name="fecha" />	
-						 <field name="prueba"/>				 
+					
+					<group>	
+								
+						
+						<div>
+						<h2>Ver grafico de beneficios</h2>
+						<h3 attrs="{'invisible':[('confi','=', False )]}">Eliga el mes en el que desea consultar: </h3>
+						<h3 attrs="{'invisible':[('confi','=', True )]}">Vas a consultar el mes: </h3>	
+						 <field name="fecha" attrs="{'readonly':[('confi','=', False )]}" />
+						 <!-- Hace falta tener el campo en el form que vamos a utilizar para la condicion en el boton-->
+						 <field name="confi" invisible="1"/>						 
+						 
+						</div>	 
 					</group>
-						<button name="%(Grafico)d" type="action" string="Ver Gráfico" class="oe_highlight"/>
+					<div>
+						<button name="confirmar" type="object" string="Confirmar" attrs="{'invisible':[('confi','=',False)]}"/>
+						<p attrs="{'invisible':[('confi','=', True )]}">Pulsa para ver el gráfico </p>
+						<button name="%(Grafico)d" type="action" string="Ver Gráfico" attrs="{'invisible':[('confi','=', True )]}" class="oe_highlight"/>
+							<!-- poneindo el tipo action y haciendo la llamada de la id con %
+							 y terminando con d hacemos que nos habra el modo gráfico-->
+					</div>
                         
 						</sheet>
 				</form>
 			</field>
 		</record>
 
-		<!--Vista tree-->
-    	<record model="ir.ui.view" id="view_modista_grafico_tree">
-			<field name="name">view.modista.graph.tree</field>
-			<field name="model">modista.grafico</field>
-			<field name="arch" type="xml">
-            <!--Nombre de los campos y orden en los que va aparecer-->
-				<tree string="Lista Pedidos">
-			
-				</tree>
-			</field>
-   		</record>
+		
         <!-- Vista de gráfico-->
 		<record id="view_modista_grafico_graph" model="ir.ui.view">
    		 <field name="name">view.modista.graph</field>
    		 <field name="model">modista.grafico</field>
    		 <field name="arch" type="xml">
+		
        		 <graph type="bar">
+				
            	 	        <field name="beneficios" type="measure"/>
-						 <field name="gastos" type="col"/>	
-						 <field name="fecha" type="row"/>	    		 
+						<field name="fecha"/>
+
            		
             	 
        		 </graph>
