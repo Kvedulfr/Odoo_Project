@@ -242,7 +242,7 @@ https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-disable-edit-form-when-
 
 - Cambiamos la fecha de los gastos para que sea obligatoria ponerla para poder realizar bien la grafica de beneficios
 
-- Formulario en beneficios para elegir el mes del año que se quiera comparar o el total de beneficios.
+- Formulario en beneficios para elegir el mes del año que saber el total de beneficios.
 
 
 

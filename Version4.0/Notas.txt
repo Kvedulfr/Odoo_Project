@@ -5,13 +5,21 @@ Mejoras
 
 -Formulario en beneficios para elegir el mes del año que se quiera comparar o el total de beneficios.
 
--Grafica de comparacion
+
 
 Futuras mejora:
+
+-Se mejorara el funcionamiento del grafico para que puedas elegir tambien el año
+
+-Se añadira una opcion para poder comparar entre dos meses 
+
+-Se añadira una opcion para ver los beneficios anuales
 
 -Se añadirá un historial de registros pagados
 
 -Se añadirá un historial de registros de otros sin pagar
+
+Biografías:
 
 Manejar varios campos de Many2One:
 
