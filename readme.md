@@ -254,9 +254,26 @@ https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-disable-edit-form-when-
 
 - Se añadira una opción para ver los beneficios anuales.
 
-- Se añadirá un historial de registros pagados.
 
-- Se añadirá un historial de registros de otros sin pagar.
+# Versión 4.1
+
+## Mejoras:
+
+- Añadido historial de pedido finalizados(recogido y pagados)
+- Añadido filtro para que no se muestre en pedido los pedidos que han sido finalizados (pagado y recogido)
+
+Futuras Mejoras:
+
+- Se mejorará el funcionamiento del gráfico para que puedas elegir también el año.
+
+- Se añadira una opción para poder comparar entre dos meses. 
+
+Biografía:
+https://www.clubdelphi.com/foros/showthread.php?t=77546
+Filtros automaticos
+https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-change-the-default-filter-in-place-when-opening-a-view-16199
+https://www.odoo.com/es_ES/forum/ayuda-1/question/opening-a-tree-with-with-filter-35267
+https://www.odoo.com/es_ES/forum/ayuda-1/question/set-def
 
 ## Biografías visitadas:
 

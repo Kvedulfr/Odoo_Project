@@ -1,0 +1,12 @@
+Mejoras:
+-Añadido historial de pedido finalizados(recogido y pagados)
+-Añadido filtro para que no se muestre en pedido los pedidos que han sido finalizados (pagado y recogido)
+
+Futuras Mejoras:
+
+Biografía:
+https://www.clubdelphi.com/foros/showthread.php?t=77546
+Filtros automaticos
+https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-change-the-default-filter-in-place-when-opening-a-view-16199
+https://www.odoo.com/es_ES/forum/ayuda-1/question/opening-a-tree-with-with-filter-35267
+https://www.odoo.com/es_ES/forum/ayuda-1/question/set-default-filter-value-in-search-view-5856

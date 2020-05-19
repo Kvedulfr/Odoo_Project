@@ -1,0 +1,21 @@
+#Crear una clase identica por herencia no se puede ya que lo que hacemos es sobreescribir la existente por lo tanto no podria
+class historial(models.Model):
+	_name= 'modista.historial'
+	t_pedido= fields.Selection(string='Tipo pedido',selection=[('1','Arreglo'),('2','Cofeccion a Medida'),('3','Traje Sevillana')])
+	fecha_p= fields.Date(string='Fecha de pedido')
+	fecha_pago= fields.Date(string='Fecha de pago')
+	fecha_r= fields.Date(string='Fecha de recogida')
+	pagado=fields.Selection(string='¿Pagado?',selection=[('1','Pagado'),('2','No Pagado')])	
+	cliente=fields.Many2one('modista.cliente','Cliente')
+	precio= fields.Float(string="Precio",  group_operator="sum")
+	descripcion= fields.Text('Descripcion de Pedido')
+	image= fields.Binary('Imagen')
+	adelanto = fields.Selection(string="¿Te ha dado algo por adelantado?",selection=[('1','Si'),('2','No')])
+	cantidad_a= fields.Float(string='Dinero adelantado')
+	total=fields.Float(string='Total a deber')	
+
+	def prueba(self):
+		#self.env.cr.execute('insert into modista_historial  select * from modista_pedido')
+		self.env.cr.execute('SELECT * FROM modista_pedido')
+		res =self.env.cr.dictfetchall()
+		self.descripcion= res

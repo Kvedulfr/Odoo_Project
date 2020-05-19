@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+	
+    <record id="kanban_vista_clientes" model="ir.ui.view">
+        <field name="model">modista.cliente</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey">
+                <field name="nombre" />
+                <field name="telefono" />              
+              
+                
+                <templates>
+                    <t t-name="kanban-tooltip">
+                        <field name="nombre" />
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card" class="text-center" >
+                            <div class="text-lowercase">
+                                <strong>
+									<a type="open">	
+                                    <field name="nombre" />
+									 </a>
+                                </strong>
+                            </div>
+                           
+                            <em>
+                                <field name="telefono"/> €
+                            </em>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+     <record model="ir.ui.view" id="view_modista_cliente_tree">
+			<field name="name">view.modista.cliente.tree</field>
+			<field name="model">modista.cliente</field>
+			<field name="arch" type="xml">
+            <!--Nombre de los campos y orden en los que va aparecer-->
+				<tree string="Lista Clientes">
+					<field name="nombre"/> 
+                    <field name="telefono"/>                                       
+				</tree>
+			</field>
+   </record>
+
+    	
+
+        <record model="ir.ui.view" id="view_modista_cliente_form">
+			<field name="name">view.modista.cliente.form</field>
+			<field name="model">modista.cliente</field>
+			<field name="arch" type="xml"> <!--Importantisimo ponerlo-->
+				<form string="cliente form">
+					<header>
+                    <!--oe_highlight para darle color al fondo del boton
+                		<button name="limpiar_registros" type="object" string="Limpiar" class="oe_edit_only"/>
+						 -->				
+            		</header>
+					
+					<sheet> 
+                    <div> 
+                    <h2>Datos personales</h2>                
+						<group>
+							  <field name="nombre"/>
+                              <field name="telefono"/>
+						</group>
+                        </div>
+                        <div>
+                            <h2>Pedidos Realizados</h2>
+                            <field name="pedido"/>
+                        </div>
+						</sheet>
+				</form>
+			</field>
+		</record>
+
+        <!-- Encabezado de la ventana principal en la que tenemos el titulo de Control de clientes  TEST-->
+		<record model="ir.actions.act_window" id="listar_clientes">
+			<field name="name">Control de Clientes</field>
+			<field name="res_model">modista.cliente</field>
+			<field name="view_mode">tree,form,kanban</field>
+		</record>
+  </data>
+ </odoo>

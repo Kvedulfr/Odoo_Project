@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+     <record model="ir.ui.view" id="view_modista_pedidos_tree">
+			<field name="name">view.modista.cliente.tree</field>
+			<field name="model">modista.pedido</field>
+			<field name="arch" type="xml">
+            <!--Nombre de los campos y orden en los que va aparecer-->
+				<tree string="Lista Pedidos">
+					<field name="cliente" />
+                    <field name="t_pedido"/>
+					<field name="fecha_p"/>
+					<field name="fecha_r"/>                       
+                    <field name="pagado"/>
+                    <field name="precio"/>
+					
+				</tree>
+			</field>
+   </record>
+	
+    	
+
+        
+		
+
+
+        <!-- Encabezado de la ventana principal en la que tenemos el titulo de Control de clientes  TEST-->
+		<record model="ir.actions.act_window" id="historial_pedidos">
+			<field name="name">Pedidos pagados</field>
+			<field name="res_model">modista.pedido</field>
+			<field name="view_mode">tree</field>
+			<!-- Filtro para mostrar solo los que estan pagados y tienen fecha de recogida-->
+			<field name="domain">[('pagado', '=', '1'), ('fecha_r','!=', False)]</field>
+		</record>
+  </data>
+ </odoo>
